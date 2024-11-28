@@ -6,6 +6,10 @@ const PORT = process.env.PORT || 5000; // Use 5000 if it is not in process.env
 // Intialize Express
 const app = express();
 
+// Middleware for public/
+app.use(express.static('public')); 
+
+
 // Define app route
 app.get('api/test', async (req, res) => {/* /* The arrow function is declared with the async keyword, making it an asynchronous function. This allows the use of the await keyword within the function, which pauses the function's execution until a Promise is resolved.  
 
