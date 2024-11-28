@@ -11,7 +11,7 @@ app.use(express.static('public'));
 
 
 // Define app route
-app.get('api/test', async (req, res) => {/* /* The arrow function is declared with the async keyword, making it an asynchronous function. This allows the use of the await keyword within the function, which pauses the function's execution until a Promise is resolved.  
+app.get('api/test', async (req, res) => {/* The arrow function is declared with the async keyword, making it an asynchronous function. This allows the use of the await keyword within the function, which pauses the function's execution until a Promise is resolved.  
 
 The GET request looks like this: http://localhost:5000/api/test?url=${TESTING_URL} */
 
