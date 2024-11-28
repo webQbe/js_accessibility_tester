@@ -6,7 +6,18 @@ const testAccessibility = async (e) => { /* The arrow function is declared with 
 
     // Get Input URL
     const url = document.querySelector('#url').value;
-    console.log(url);
+
+    // Check for blank input
+    if(url === ''){
+
+        alert('Please add a url!');
+
+    } else {
+
+        // Show loading spinner
+       // Make fetch() request
+        
+    }
 
 }
 
