@@ -14,12 +14,31 @@ const testAccessibility = async (e) => { /* The arrow function is declared with 
 
     } else {
 
-        // Show loading spinner
+        // Set Loading State to true
+        setLoading(); // Show spinner
+       
        // Make fetch() request
         
     }
 
 }
+
+ // Set Loading State
+ const setLoading = (isLoading = true) => {
+
+    // Select Loader Element
+    const loader = document.querySelector('.loader');
+
+    // Check if loading is true
+    if(isLoading){
+        // Show spinner
+        loader.style.display = 'block';
+    } else {
+        // Hide spinner
+        loader.style.display = 'none';
+    }
+ }
+
 
 
 // Listen for submit event in the form
@@ -31,7 +50,6 @@ document.querySelector('#form').addEventListener('submit', testAccessibility);
 
 // TODOS:
     // Add Issues to DOM
-    // Set Loading State
     // Escape HTML within text
 
 
