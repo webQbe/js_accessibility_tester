@@ -18,15 +18,43 @@
 <body>
     
     <div class="container-sm">
+        <!-- Responsive, fixed-width container -->
         <div class="card my-5 p-3 bg-dark text-light">
-            <!-- HEADER -->
+            <!-- Bootstrap Syntax Breakdown:
+                 container-sm: Styled container with rounded corners, shadow, and padding 
+                 my-5: Margin Top & Bottom: 5 units (3rem)
+                 p-3: Padding 1 rem
+                 bg-dark: dark gray background color
+                 text-light: light-colored (white) text
+            -->
             <div class="card-body">
-                <h2 class="mb-3">Website Accessibility Tester</h2>
+                <!-- <div class="card-body">:
+                      Provides padding and organizes content within the card.
+                -->
+
+                <h2 class="mb-3">
+                    Website Accessibility Tester
+                    <!-- mb-3:  1rem of bottom margin  -->
+                </h2>
                 <form id="form">
                     <div class="input-group mb-3">
+                        <!-- input-group:
+                             Groups the input field and the button into a single, cohesive element. -->
+
                         <!-- INPUT WITH URL VALIDATION -->
                         <input type="url" name="" id="url" class="form-control" placeholder="Enter a website...">
+                            <!-- form-control: 
+                                 Styles the input field to have a consistent appearance across browsers:
+                                    Adds padding, a border, and rounded corners.
+                                    Sets the width to 100% within the container. -->
                         <button type="submit" class="btn btn-primary">Submit</button>
+                        <!-- btn: 
+                              Styles the button with padding, rounded corners, and a hover effect.
+
+                             btn-primary:
+                               Adds Bootstrap's primary color (usually blue) as the background and adjusts text color for contrast.
+                              -->
+
                     </div>
                 </form>
             </div>
@@ -34,8 +62,13 @@
 
         <!-- SPINNING LOADER -->
         <div class="loader text-center">
+            <!-- text-center: Horizontally centers the loader element inside its container -->
             <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
+                <!-- spinner-border: Displays a spinning loader animation, styled as a border.-->
+                <span class="visually-hidden">Loading...
+                    <!-- visually-hidden:
+                        Hides the text visually but keeps it accessible for screen readers, ensuring the spinner is properly labeled for accessibility. -->
+                </span>
             </div>
         </div>
 
