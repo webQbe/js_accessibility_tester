@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 // Fetch Accessibility Issues
 const testAccessibility = async (e) => { /* The arrow function is declared with the async keyword, making it an asynchronous function. This allows the use of the await keyword within the function, which pauses the function's execution until a Promise is resolved.  */
 
@@ -24,7 +22,7 @@ const testAccessibility = async (e) => { /* The arrow function is declared with 
        // Check if response status is NOT success
        if(res.status !== 200){
 
-            setLoading(false); // Hide spinne
+            setLoading(false); // Hide spinner when requesting is done
             alert('Something went wrong!');
 
        } else {
@@ -35,12 +33,21 @@ const testAccessibility = async (e) => { /* The arrow function is declared with 
             // Output results to UI
             addIssuestoDOM(issues);
 
-            // Hide spinner
+            // Hide spinner when requesting is done
             setLoading(false);
 
        }
     }
 }
+
+// Add Issues to DOM
+const addIssuestoDOM = (issues) => {
+
+    // Log results from Pa11y
+    console.log(issues);
+
+}
+
 
  // Set Loading State
  const setLoading = (isLoading = true) => {
@@ -68,7 +75,6 @@ document.querySelector('#form').addEventListener('submit', testAccessibility);
 
 
 // TODOS:
-    // Add Issues to DOM
     // Escape HTML within text
 
 
