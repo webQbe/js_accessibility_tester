@@ -59,26 +59,35 @@ const addIssuestoDOM = (issues) => {
         // Loop Through Issues Array
         issues.forEach((issue) => {
 
-            // Create Card, Add Message & Context
+            // Create Card, Add Message & Context for current result
             const output = `<div class="card mb-5"> 
                             <!-- BOOTSTRAP CARD WITH MARGIN BOTTOM -->
                             <div class="card-body">
                                     <h4>${issue.message}</h4>
                                     <p class="bg-light p-3 my-3"> 
-                                        <!-- bg-light: Light Shade Bg-color, 
-                                             p-3: Padding 1rem, 
-                                             my-3: Top & Bottom Margin 1 rem-->
+                                        <!-- BS Styling: 
+                                            bg-light: Light Shade Bg-color, 
+                                            p-3: Padding 1rem, 
+                                            my-3: Top & Bottom Margin 1 rem-->
                                         <!-- IGNORE HTML WITHIN TEXT -->
                                         ${escapeHTML(issue.context)} 
+                                    </p>
+                                    <p class="bg-secondary text-light p-2">
+                                        <!-- BS Styling:  
+                                            bg-secondary: medium-gray background
+                                            text-light: set text color to a light color
+                                            p-2: 0.5 rem padding  -->
+                                        CODE: ${issue.code}
                                     </p>
                                 </div>
                             </div>`;
 
+            // Append current card to #issues
+            // += Appending, Not replacing previous result
+            issuesOutput.innerHTML += output;
+
         })
     }
-
-
-
 }
 
 
@@ -115,12 +124,3 @@ function escapeHTML(html){
 
 // Listen for submit event in the form
 document.querySelector('#form').addEventListener('submit', testAccessibility);
-
-
-
-
-
-// TODOS:
-
-
-
