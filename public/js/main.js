@@ -43,8 +43,41 @@ const testAccessibility = async (e) => { /* The arrow function is declared with 
 // Add Issues to DOM
 const addIssuestoDOM = (issues) => {
 
-    // Log results from Pa11y
-    console.log(issues);
+    // Select #issues Element
+    const issuesOutput = document.querySelector('#issues');
+
+    // Clear existing results
+    issuesOutput.innerHTML = '';
+
+    // Check for empty response
+    if(issues.length === 0){
+
+        issuesOutput.innerHTML = '<h4>No Issues Found!</h4>';
+
+    } else {
+
+        // Loop Through Issues Array
+        issues.forEach((issue) => {
+
+            // Create Card, Add Message & Context
+            const output = `<div class="card mb-5"> 
+                            <!-- BOOTSTRAP CARD WITH MARGIN BOTTOM -->
+                            <div class="card-body">
+                                    <h4>${issue.message}</h4>
+                                    <p class="bg-light p-3 my-3"> 
+                                        <!-- bg-light: Light Shade Bg-color, 
+                                             p-3: Padding 1rem, 
+                                             my-3: Top & Bottom Margin 1 rem-->
+                                        <!-- IGNORE HTML WITHIN TEXT -->
+                                        ${escapeHTML(issue.context)} 
+                                    </p>
+                                </div>
+                            </div>`;
+
+        })
+    }
+
+
 
 }
 
