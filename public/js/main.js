@@ -1,5 +1,6 @@
-// Fetch Accessibility Issues
+const { response } = require("express");
 
+// Fetch Accessibility Issues
 const testAccessibility = async (e) => { /* The arrow function is declared with the async keyword, making it an asynchronous function. This allows the use of the await keyword within the function, which pauses the function's execution until a Promise is resolved.  */
 
     e.preventDefault(); // Avoid page reload on submit
@@ -18,9 +19,27 @@ const testAccessibility = async (e) => { /* The arrow function is declared with 
         setLoading(); // Show spinner
        
        // Make fetch() request
-        
-    }
+       const res = await fetch(`/api/test?url=${url}`); /* await pauses the execution of the async testAccessibility() until the fetch() Promise is resolved. This ensures that res contains the response from the server. */
 
+       // Check if response status is NOT success
+       if(res.status !== 200){
+
+            setLoading(false); // Hide spinne
+            alert('Something went wrong!');
+
+       } else {
+
+            // Status 200
+            const { issues } = await res.json(); /* await pauses the execution of the async testAccessibility() again until the res.json() Promise is resolved. This ensures that { issues } contains the results from the server. */
+
+            // Output results to UI
+            addIssuestoDOM(issues);
+
+            // Hide spinner
+            setLoading(false);
+
+       }
+    }
 }
 
  // Set Loading State
