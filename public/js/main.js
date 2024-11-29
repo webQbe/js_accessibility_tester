@@ -82,6 +82,19 @@ const addIssuestoDOM = (issues) => {
 }
 
 
+// Escape HTML within text
+function escapeHTML(html){
+
+    return html /* Replace symbols in html with characters that output the same symbols */
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;')
+}
+
+
+
  // Set Loading State
  const setLoading = (isLoading = true) => {
 
@@ -108,7 +121,6 @@ document.querySelector('#form').addEventListener('submit', testAccessibility);
 
 
 // TODOS:
-    // Escape HTML within text
 
 
 
